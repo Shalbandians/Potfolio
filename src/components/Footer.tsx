@@ -109,7 +109,7 @@ const Footer = () => {
             <div className="space-y-4">
               <h4 className="text-white font-semibold text-lg">Quick Links</h4>
               <div className="grid grid-cols-2 gap-2">
-                {["About", "Projects", "Certifications", "Contact", "Experience", "Education"].map(
+                {["About", "Projects", "Certifications", "Experience", "Education"].map(
                   (link) => (
                     <a
                       key={link}
