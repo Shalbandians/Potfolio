@@ -5,6 +5,8 @@ import scan from '../image/scan.png';
 import eshop from '../image/eshop.png';
 import ume from '../image/ume.png';
 import Mh from '../image/Mh.png';
+import admin from '../image/admin.png';
+import vendor from '../image/vendor.png';
 const Projects = () => {
   const [ref, isVisible] = useIntersectionObserver();
 
@@ -17,6 +19,25 @@ const Projects = () => {
       technologies: ['React', 'Node.js', 'MongoDB', 'Razorpay', 'Express', 'Webhooks'],
       liveUrl: 'https://scan2alert.in/',
       featured: true
+    },
+    {
+      id: 2,
+      title: 'Admin Dashboard',
+      description: 'Built a full-stack MERN dashboard to manage vehicles, complaints, and payments with a sleek, responsive UI. Integrated WhatsApp Cloud API for instant notifications and Razorpay for seamless payment tracking.Implemented secure login, real-time updates, and dynamic analytics, optimizing React components with useMemo/useCallback.Managed backend & database with Node.js, Express, and MongoDB for smooth data flow and scalability.',
+      image: admin,
+      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Postman', 'Vercel'],
+      liveUrl: 'https://admin-dashboard-three-sooty-11.vercel.app/',
+      githubUrl: 'https://github.com/Shalbandians/Multi-Vender',
+      featured: false
+    },{
+      id: 2,
+      title: 'Vendor Dashboard',
+      description: 'Built a full-stack MERN dashboard enabling vendors to manage products, orders, and payments in one place. Implemented role-based authentication (admin & vendor) with JWT for secure access.Designed a modern, responsive UI with React + Tailwind CSS, optimized using Context API, useMemo.Backend built with Node.js & Express, storing vendor/product/order data in MongoDB.Deployed on Vercel, ensuring fast, reliable access for end users. ',
+      image: vendor,
+      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Postman','Vercel'],
+      liveUrl: 'https://vendor-dashboard-nu.vercel.app/',
+      githubUrl: 'https://github.com/Shalbandians/Multi-Vender',
+      featured: false
     },
     {
       id: 2,
