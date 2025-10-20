@@ -13,7 +13,7 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Scan2Alert - Vehicle Management System',
+      title: 'Scan2Alert - VMS Bot (Vehicle Management System Bot)',
       description: 'Designed and deployed a WhatsApp-based platform enabling users to register vehicles, submit complaints, and make secure payments via Razor pay.Integrated Razorpay Payment Links API with WhatsAppCloud API to handle payments directly in chat, including real-time payment status tracking. Implemented automated workflows to verify vehicle data, log complaints (issue & location), and instantly notify both vehicle owners and complainants.Leveraged MongoDB for real-time data storage and retrieval, ensuring high performance andreliability.Configured WhatsApp Webhooks for seamless two-way communication and instant data synchronization.Deployed on a Linux VPS using Nginx, SSL, and a custom domain for secure, production-read hoisti.',
       image: scan,
       technologies: ['React', 'Node.js', 'MongoDB', 'Razorpay', 'Express', 'Webhooks'],
