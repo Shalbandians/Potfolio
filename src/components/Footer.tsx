@@ -92,29 +92,29 @@ const Footer = () => {
       <footer className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 lg:px-12 py-14 relative z-10">
-          <div className="grid md:grid-cols-3 gap-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-14 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
             {/* Brand */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+            <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
+              <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
                 Muhammad Rizwan
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                 Full Stack Developer passionate about building modern, scalable, and user-friendly
                 web experiences.
               </p>
             </div>
 
             {/* Quick Links */}
-            <div className="space-y-4">
-              <h4 className="text-white font-semibold text-lg">Quick Links</h4>
+            <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
+              <h4 className="text-white font-semibold text-base sm:text-lg">Quick Links</h4>
               <div className="grid grid-cols-2 gap-2">
                 {["About", "Projects", "Certifications", "Experience", "Education"].map(
                   (link) => (
                     <a
                       key={link}
                       href={`#${link.toLowerCase()}`}
-                      className="text-gray-400 hover:text-pink-400 transition-all duration-300 hover:translate-x-1"
+                      className="text-sm sm:text-base text-gray-400 hover:text-pink-400 transition-all duration-300 hover:translate-x-1"
                     >
                       {link}
                     </a>
@@ -124,26 +124,26 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="space-y-4">
-              <h4 className="text-white font-semibold text-lg">Connect</h4>
-              <div className="flex gap-5">
+            <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
+              <h4 className="text-white font-semibold text-base sm:text-lg">Connect</h4>
+              <div className="flex gap-4 sm:gap-5 justify-center sm:justify-start">
                 <a
                   href="https://github.com/Shalbandians"
                   className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.6)]"
                 >
-                  <Github size={26} />
+                  <Github size={24} className="sm:w-[26px] sm:h-[26px]" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/muhammad-rizwan-093727243/"
                   className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
                 >
-                  <Linkedin size={26} />
+                  <Linkedin size={24} className="sm:w-[26px] sm:h-[26px]" />
                 </a>
                 <a
                   href="mailto:muhammadrizwanramzan300@gmail.com"
                   className="text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(34,197,94,0.6)]"
                 >
-                  <Mail size={26} />
+                  <Mail size={24} className="sm:w-[26px] sm:h-[26px]" />
                 </a>
               </div>
             </div>
@@ -153,12 +153,13 @@ const Footer = () => {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/923164049722" // 👈 apna WhatsApp number yahan dalen (country code k sath)
+        href="https://wa.me/923164049722"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 z-50"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-green-500 text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 z-50"
+        aria-label="Contact on WhatsApp"
       >
-        <FaWhatsapp size={28} />
+        <FaWhatsapp size={24} className="sm:w-7 sm:h-7" />
       </a>
     </>
   );

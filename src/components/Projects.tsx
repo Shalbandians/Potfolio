@@ -120,12 +120,12 @@ const Projects = () => {
               >
                 <div className={`grid ${project.featured ? 'md:grid-cols-2' : 'grid-cols-1'} gap-0`}>
                   {project.image ? (
-                    <div className="relative overflow-hidden">
+                    <div className="relative overflow-hidden min-h-[250px] sm:min-h-[300px]">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                        style={{ minHeight: '300px', maxHeight: '500px' }}
+                        style={{ minHeight: '250px', maxHeight: '500px' }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                       {project.featured && (
@@ -137,10 +137,10 @@ const Projects = () => {
                       )}
                     </div>
                   ) : (
-                    <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 flex items-center justify-center min-h-[300px]">
-                      <div className="text-center p-8">
-                        <Code className="w-20 h-20 text-white/80 mx-auto mb-4" />
-                        <h4 className="text-white text-2xl font-bold">{project.title}</h4>
+                    <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 flex items-center justify-center min-h-[250px] sm:min-h-[300px]">
+                      <div className="text-center p-6 sm:p-8">
+                        <Code className="w-16 h-16 sm:w-20 sm:h-20 text-white/80 mx-auto mb-4" />
+                        <h4 className="text-white text-xl sm:text-2xl font-bold">{project.title}</h4>
                       </div>
                       {project.featured && (
                         <div className="absolute top-4 left-4">
@@ -152,11 +152,11 @@ const Projects = () => {
                     </div>
                   )}
 
-                  <div className="p-8">
-                    <h3 className="text-white font-bold text-xl mb-3 group-hover:text-blue-400 transition-colors">
+                  <div className="p-6 sm:p-8">
+                    <h3 className="text-white font-bold text-lg sm:text-xl mb-3 group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 line-clamp-4 sm:line-clamp-none">
                       {project.description}
                     </p>
 

@@ -72,7 +72,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-slate-800/30">
+    <section id="certifications" className="py-12 sm:py-16 lg:py-20 bg-slate-800/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div
@@ -82,19 +82,19 @@ const Certifications = () => {
               : 'opacity-0 translate-y-10'
             }`}
         >
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
               Certifications & Achievements
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
+            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+            <p className="text-sm sm:text-base text-gray-300 mt-3 sm:mt-4 max-w-2xl mx-auto px-4">
               Professional certifications that demonstrate my commitment to
               continuous learning and expertise
             </p>
           </div>
 
           {/* Grid of certifications */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {certifications.map((cert, index) => (
               <div
                 key={cert.id}
@@ -115,14 +115,14 @@ const Certifications = () => {
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-white font-semibold text-lg mb-2 group-hover:text-blue-400 transition-colors">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-2 group-hover:text-blue-400 transition-colors line-clamp-2">
                     {cert.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-2">{cert.issuer}</p>
-                  <p className="text-gray-500 text-xs mb-4">{cert.date}</p>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-2">{cert.issuer}</p>
+                  <p className="text-gray-500 text-xs mb-3 sm:mb-4">{cert.date}</p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {cert.skills.slice(0, 3).map((skill) => (
                       <span
                         key={skill}
