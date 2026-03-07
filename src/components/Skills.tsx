@@ -36,6 +36,8 @@ const Skills = () => {
     chakra,
     html,
     css,
+    { title: "Prisma ORM", img: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMjguMDAxIDIzLjk5OTlMMjguMDAxIDE5OS45OTlMMTI4LjAwMSAyMzEuOTk5TDIyOC4wMDEgMTk5Ljk5OUwxMjguMDAxIDIzLjk5OTlaIiBmaWxsPSIjMkQzNzQ4Ii8+CjxwYXRoIGQ9Ik0xMjguMDAxIDIzLjk5OTlMMjguMDAxIDE5OS45OTlMMTI4LjAwMSAyMzEuOTk5VjIzLjk5OTlaIiBmaWxsPSIjMEMzNDRCIi8+CjxwYXRoIGQ9Ik0xMjguMDAxIDIzLjk5OTlMMjI4LjAwMSAxOTkuOTk5TDEyOC4wMDEgMjMxLjk5OVYyMy45OTk5WiIgZmlsbD0iIzE2NjE3QSIvPgo8L3N2Zz4K" },
+    { title: "PostgreSQL", img: "https://cdn-icons-png.flaticon.com/512/5968/5968342.png" },
     { title: "Socket.io", img: "https://cdn.worldvectorlogo.com/logos/socket-io.svg" },
     { title: "Payment Integration", img: "https://cdn-icons-png.flaticon.com/512/891/891407.png" },
     { title: "Vercel", img: "https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" },

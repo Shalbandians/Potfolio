@@ -7,21 +7,41 @@ import ume from '../image/ume.png';
 import Mh from '../image/Mh.png';
 import admin from '../image/admin.png';
 import vendor from '../image/vendor.png';
+import gencyb from '../image/gencyb.png';
+import scrum from '../image/scrum.jpeg';
 const Projects = () => {
   const [ref, isVisible] = useIntersectionObserver();
 
   const projects = [
     {
       id: 1,
+      title: 'GenCyb SaaS Platform Deployment',
+      description: 'Implemented CI/CD pipelines using GitHub Actions to automate the deployment of a React frontend and Node.js backend to a VPS server. Configured Docker-based deployment to ensure consistent environments and smooth application updates. Set up automated workflows for build and deployment on code push, reducing manual deployment effort and improving release reliability. Managed production deployment and server configuration to ensure the application runs smoothly in a live environment.',
+      image: gencyb,
+      technologies: ['GitHub Actions', 'CI/CD', 'Docker', 'React', 'Node.js', 'VPS', 'Prisma ORM', 'PostgreSQL'],
+      liveUrl: 'https://app.gen-cyb.com/',
+      featured: true
+    },
+    {
+      id: 2,
+      title: 'Scrum Coffee Shop',
+      description: 'Developed a full-stack Coffee Shop Management System supporting 100+ users with secure JWT-based authentication and single-device login enforcement. Integrated Google Wallet and Apple Wallet to generate digital loyalty and subscription cards. Implemented real-time synchronization where order updates, loyalty points, and subscription status automatically update across mobile wallets. Built a QR code–based workflow used by baristas to scan customer cards and instantly update rewards, improving checkout efficiency by ~40%. Developed a dynamic billing engine handling cash and card payments, automatic discount calculations, and promotional offers.',
+      image: scrum,
+      technologies: ['Node.js', 'Express.js', 'Prisma', 'PostgreSQL', 'JWT', 'Firebase', 'Google Wallet', 'Apple Wallet'],
+      liveUrl: 'https://scrum-backend.vercel.app/',
+      featured: false
+    },
+    {
+      id: 3,
       title: 'Scan2Alert - VMS Bot (Vehicle Management System Bot)',
       description: 'Designed and deployed a WhatsApp-based platform enabling users to register vehicles, submit complaints, and make secure payments via Razor pay.Integrated Razorpay Payment Links API with WhatsAppCloud API to handle payments directly in chat, including real-time payment status tracking. Implemented automated workflows to verify vehicle data, log complaints (issue & location), and instantly notify both vehicle owners and complainants.Leveraged MongoDB for real-time data storage and retrieval, ensuring high performance andreliability.Configured WhatsApp Webhooks for seamless two-way communication and instant data synchronization.Deployed on a Linux VPS using Nginx, SSL, and a custom domain for secure, production-read hoisti.',
       image: scan,
       technologies: ['React', 'Node.js', 'MongoDB', 'Razorpay', 'Express', 'Webhooks'],
       liveUrl: 'https://scan2alert.in/',
-      featured: true
+      featured: false
     },
     {
-      id: 2,
+      id: 4,
       title: 'Admin Dashboard',
       description: 'Built a full-stack MERN dashboard to manage vehicles, complaints, and payments with a sleek, responsive UI. Integrated WhatsApp Cloud API for instant notifications and Razorpay for seamless payment tracking.Implemented secure login, real-time updates, and dynamic analytics, optimizing React components with useMemo/useCallback.Managed backend & database with Node.js, Express, and MongoDB for smooth data flow and scalability.',
       image: admin,
@@ -30,7 +50,7 @@ const Projects = () => {
       githubUrl: 'https://github.com/Shalbandians/Multi-Vender',
       featured: false
     },{
-      id: 2,
+      id: 5,
       title: 'Vendor Dashboard',
       description: 'Built a full-stack MERN dashboard enabling vendors to manage products, orders, and payments in one place. Implemented role-based authentication (admin & vendor) with JWT for secure access.Designed a modern, responsive UI with React + Tailwind CSS, optimized using Context API, useMemo.Backend built with Node.js & Express, storing vendor/product/order data in MongoDB.Deployed on Vercel, ensuring fast, reliable access for end users. ',
       image: vendor,
@@ -40,7 +60,7 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 2,
+      id: 6,
       title: 'Multi-Vender E-commerce Store',
       description: 'Developed secure user authentication with JWT and integrated multiple payment options (Stripe,PayPal, COD), boosting transaction volume by 50% Designed comprehensive order and seller management features, including real-time chat viaSocket.IO and timed product events, increasing seller registrations by 35% and customer engagement by 40%. Created admin tools for efficient monitoring and control of products, events, and seller activities,improving admin productivity by 20%. Implemented coupon management and streamlined seller fund withdrawals with admin approval,enhancing promotional success and reducing withdrawal processing time by 30%.',
       image: eshop,
@@ -50,7 +70,7 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 3,
+      id: 7,
       title: 'UME Health Referral Portal',
       description: 'Designed and implemented a secure registration system with email verification and automated notifications. Integrated a PDF generation module for efficient referral file distribution, enhancing workflow efficiency by 40%. Developed an admin panel for streamlined appointment scheduling,improving scheduling accuracy by 30%.',
       image: ume,
@@ -60,7 +80,7 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 4,
+      id: 8,
       title: 'Moving House',
       description: 'Tech Coordinator at Home-Shift Pro Enhanced user experience by integrating state code input for more efficient cleaning and moving services, and implemented secure email verification, improving registration accuracy by 30% and reducing processing time by 20%.',
       image: Mh,
@@ -99,22 +119,38 @@ const Projects = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className={`grid ${project.featured ? 'md:grid-cols-2' : 'grid-cols-1'} gap-0`}>
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                    {project.featured && (
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                          Featured
-                        </span>
+                  {project.image ? (
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                        style={{ minHeight: '300px', maxHeight: '500px' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                      {project.featured && (
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                            Featured
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 flex items-center justify-center min-h-[300px]">
+                      <div className="text-center p-8">
+                        <Code className="w-20 h-20 text-white/80 mx-auto mb-4" />
+                        <h4 className="text-white text-2xl font-bold">{project.title}</h4>
                       </div>
-                    )}
-                  </div>
+                      {project.featured && (
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                            Featured
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   <div className="p-8">
                     <h3 className="text-white font-bold text-xl mb-3 group-hover:text-blue-400 transition-colors">

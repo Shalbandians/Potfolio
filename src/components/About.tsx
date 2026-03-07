@@ -19,7 +19,7 @@ const About = () => {
             }`}
         >
           {/* Heading */}
-          <div className="text-center mb-16">
+          <div  id="experience" className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-wide">
               About Me
             </h2>
@@ -34,7 +34,7 @@ const About = () => {
           <div className="flex flex-col space-y-16">
 
             {/* LEFT SIDE → Work Experience */}
-            <div>
+            <div >
               <h3 className="text-2xl font-semibold text-white mb-6">
                 Work Experience
               </h3>
@@ -79,8 +79,7 @@ const About = () => {
             </div>
 
             {/* Academic Section */}
-            {/* Academic Section */}
-            <div className="mt-12">
+            <div className="mt-12" id="education">
               <h3 className="text-2xl font-semibold text-white mb-6">
                 Academic
               </h3>

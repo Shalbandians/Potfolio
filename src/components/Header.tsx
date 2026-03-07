@@ -14,12 +14,22 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'About', href: '#about', icon: User },
-    { name: 'Skills', href: '#skills', icon: Code },
-    { name: 'Certifications', href: '#certifications', icon: Award },
-    { name: 'Projects', href: '#projects', icon: Code },
-    { name: 'Contact', href: 'mailto:muhammadrizwanramzan300@gmail.com', icon: Mail },
+    { name: 'About', href: '#about', icon: User, isExternal: false },
+    { name: 'Skills', href: '#skills', icon: Code, isExternal: false },
+    { name: 'Certifications', href: '#certifications', icon: Award, isExternal: false },
+    { name: 'Projects', href: '#projects', icon: Code, isExternal: false },
+    { name: 'Contact', href: '#contact', icon: Mail, isExternal: false },
   ];
+
+  const handleContactClick = (e: React.MouseEvent, href: string) => {
+    if (href === '#contact') {
+      e.preventDefault();
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
@@ -39,6 +49,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleContactClick(e, item.href)}
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-white/10 group"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -68,8 +79,11 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  handleContactClick(e, item.href);
+                  setIsMenuOpen(false);
+                }}
                 className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 hover:bg-white/10"
-                onClick={() => setIsMenuOpen(false)}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <item.icon className="inline-block w-4 h-4 mr-3" />

@@ -18,6 +18,7 @@ function App() {
         <Skills />
         <Certifications />
         <Projects />
+        <Contact />
       </main>
       <Footer />
     </div>
