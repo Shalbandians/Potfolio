@@ -1,165 +1,60 @@
-
-
-// import React from "react";
-// import { Github, Linkedin, Mail, Heart } from "lucide-react";
-
-// const Footer = () => {
-//   return (
-//     <footer className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50">
-//       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
-
-//       <div className="container mx-auto px-6 lg:px-12 py-14 relative z-10">
-//         <div className="grid md:grid-cols-3 gap-10">
-//           {/* Brand */}
-//           <div className="space-y-4">
-//             <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-//               Muhammad Rizwan
-//             </h3>
-//             <p className="text-gray-400 leading-relaxed">
-//               Full Stack Developer passionate about building modern, scalable, and user-friendly
-//               web experiences.
-//             </p>
-//           </div>
-
-//           {/* Quick Links */}
-//           <div className="space-y-4">
-//             <h4 className="text-white font-semibold text-lg">Quick Links</h4>
-//             <div className="grid grid-cols-2 gap-2">
-//               {["About", "Projects", "Certifications", "Contact", "Experience", "Education"].map(
-//                 (link) => (
-//                   <a
-//                     key={link}
-//                     href={`#${link.toLowerCase()}`}
-//                     className="text-gray-400 hover:text-pink-400 transition-all duration-300 hover:translate-x-1"
-//                   >
-//                     {link}
-//                   </a>
-//                 )
-//               )}
-//             </div>
-//           </div>
-
-//           {/* Social Links */}
-//           <div className="space-y-4">
-//             <h4 className="text-white font-semibold text-lg">Connect</h4>
-//             <div className="flex gap-5">
-//               <a
-//                 href="https://github.com/Shalbandians"
-//                 className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.6)]"
-//               >
-//                 <Github size={26} />
-//               </a>
-//               <a
-//                 href="https://www.linkedin.com/in/muhammad-rizwan-093727243/"
-//                 className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
-//               >
-//                 <Linkedin size={26} />
-//               </a>
-//               <a
-//                 href="mailto:muhammadrizwanramzan300@gmail.com"
-//                 className="text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(34,197,94,0.6)]"
-//               >
-//                 <Mail size={26} />
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Bottom */}
-//         {/* <div className="border-t border-slate-700/50 mt-10 pt-8 text-center">
-//           <p className="text-gray-400 flex items-center justify-center gap-2">
-//             Made with{" "}
-//             <Heart className="w-4 h-4 text-red-500 animate-pulse drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]" />{" "}
-//             by Muhammad Rizwan
-//           </p>
-//           <p className="text-gray-500 text-sm mt-2">
-//             © 2023 All rights reserved.
-//           </p>
-//         </div> */}
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa"; // 👈 React Icons se WhatsApp icon
+import { FaWhatsapp } from "react-icons/fa";
+import { useTheme } from '../App';
 
 const Footer = () => {
+  const { dark } = useTheme();
+  const bg = dark ? 'bg-[#02040a] border-white/8' : 'bg-white border-gray-200';
+  const heading = dark ? 'text-white' : 'text-gray-900';
+  const sub = dark ? 'text-gray-400' : 'text-gray-500';
+  const link = dark ? 'text-gray-400 hover:text-indigo-400' : 'text-gray-500 hover:text-indigo-600';
+
   return (
     <>
-      <footer className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-14 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
-            {/* Brand */}
-            <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Muhammad Rizwan
-              </h3>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Full Stack Developer passionate about building modern, scalable, and user-friendly
-                web experiences.
+      <footer className={`relative border-t transition-colors duration-500 ${bg}`}>
+        <div className="container mx-auto px-6 lg:px-20 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+            <div>
+              <h3 className="text-xl font-extrabold text-gradient mb-3">MR.</h3>
+              <p className={`text-sm leading-relaxed ${sub}`}>
+                Full Stack Developer building modern, scalable, and user-friendly web experiences.
               </p>
             </div>
-
-            {/* Quick Links */}
-            <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-              <h4 className="text-white font-semibold text-base sm:text-lg">Quick Links</h4>
+            <div>
+              <h4 className={`font-semibold mb-4 ${heading}`}>Quick Links</h4>
               <div className="grid grid-cols-2 gap-2">
-                {["About", "Projects", "Certifications", "Experience", "Education"].map(
-                  (link) => (
-                    <a
-                      key={link}
-                      href={`#${link.toLowerCase()}`}
-                      className="text-sm sm:text-base text-gray-400 hover:text-pink-400 transition-all duration-300 hover:translate-x-1"
-                    >
-                      {link}
-                    </a>
-                  )
-                )}
+                {["About", "Projects", "Certifications", "Experience", "Education"].map(l => (
+                  <a key={l} href={`#${l.toLowerCase()}`}
+                    className={`text-sm transition-all duration-200 hover:translate-x-1 ${link}`}>{l}</a>
+                ))}
               </div>
             </div>
-
-            {/* Social Links */}
-            <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-              <h4 className="text-white font-semibold text-base sm:text-lg">Connect</h4>
-              <div className="flex gap-4 sm:gap-5 justify-center sm:justify-start">
-                <a
-                  href="https://github.com/Shalbandians"
-                  className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.6)]"
-                >
-                  <Github size={24} className="sm:w-[26px] sm:h-[26px]" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/muhammad-rizwan-093727243/"
-                  className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
-                >
-                  <Linkedin size={24} className="sm:w-[26px] sm:h-[26px]" />
-                </a>
-                <a
-                  href="mailto:muhammadrizwanramzan300@gmail.com"
-                  className="text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(34,197,94,0.6)]"
-                >
-                  <Mail size={24} className="sm:w-[26px] sm:h-[26px]" />
-                </a>
+            <div>
+              <h4 className={`font-semibold mb-4 ${heading}`}>Connect</h4>
+              <div className="flex gap-3">
+                {[
+                  { href: 'https://github.com/Shalbandians', icon: Github },
+                  { href: 'https://www.linkedin.com/in/muhammad-rizwan-093727243/', icon: Linkedin },
+                  { href: 'mailto:muhammadrizwanramzan300@gmail.com', icon: Mail },
+                ].map(({ href, icon: Icon }) => (
+                  <a key={href} href={href}
+                    className={`w-10 h-10 flex items-center justify-center rounded-xl border transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-500/50 hover:text-indigo-400 ${dark ? 'border-white/10 text-gray-400' : 'border-gray-200 text-gray-500'}`}>
+                    <Icon size={18} />
+                  </a>
+                ))}
               </div>
             </div>
+          </div>
+          <div className={`mt-10 pt-6 border-t text-center text-xs ${dark ? 'border-white/5 text-gray-600' : 'border-gray-100 text-gray-400'}`}>
+            © {new Date().getFullYear()} Muhammad Rizwan. All rights reserved.
           </div>
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/923164049722"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-green-500 text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 z-50"
-        aria-label="Contact on WhatsApp"
-      >
-        <FaWhatsapp size={24} className="sm:w-7 sm:h-7" />
+      <a href="https://wa.me/923164049722" target="_blank" rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-emerald-500 text-white p-3.5 rounded-full shadow-lg hover:bg-emerald-600 hover:scale-110 transition-all duration-300 z-50 shadow-emerald-500/30">
+        <FaWhatsapp size={22} />
       </a>
     </>
   );

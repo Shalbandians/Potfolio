@@ -1,6 +1,7 @@
 import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { ExternalLink, Github, Code } from 'lucide-react';
+import { ExternalLink, Code } from 'lucide-react';
+import { useTheme } from '../App';
 import scan from '../image/scan.png';
 import eshop from '../image/eshop.png';
 import ume from '../image/ume.png';
@@ -9,185 +10,137 @@ import admin from '../image/admin.png';
 import vendor from '../image/vendor.png';
 import gencyb from '../image/gencyb.png';
 import scrum from '../image/scrum.jpeg';
+
 const Projects = () => {
   const [ref, isVisible] = useIntersectionObserver();
+  const { dark } = useTheme();
+
+  const sec = dark ? 'bg-[#02040a]' : 'bg-[#f0f4ff]';
+  const heading = dark ? 'text-white' : 'text-gray-900';
+  const sub = dark ? 'text-gray-300' : 'text-gray-600';
+  const cardBg = dark ? 'bg-white/5 border-white/8 backdrop-blur-sm hover:border-indigo-500/40' : 'bg-white border-gray-200 shadow-sm hover:border-indigo-400';
+  const desc = dark ? 'text-gray-300' : 'text-gray-600';
+  const tagBg = dark ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/20' : 'bg-indigo-50 text-indigo-700 border-indigo-200';
 
   const projects = [
     {
-      id: 1,
-      title: 'GenCyb SaaS Platform Deployment',
-      description: 'Implemented CI/CD pipelines using GitHub Actions to automate the deployment of a React frontend and Node.js backend to a VPS server. Configured Docker-based deployment to ensure consistent environments and smooth application updates. Set up automated workflows for build and deployment on code push, reducing manual deployment effort and improving release reliability. Managed production deployment and server configuration to ensure the application runs smoothly in a live environment.',
+      id: 1, title: 'GenCyb SaaS Platform Deployment',
+      description: 'Implemented CI/CD pipelines using GitHub Actions to automate the deployment of a React frontend and Node.js backend to a VPS server. Configured Docker-based deployment to ensure consistent environments and smooth application updates.',
       image: gencyb,
       technologies: ['GitHub Actions', 'CI/CD', 'Docker', 'React', 'Node.js', 'VPS', 'Prisma ORM', 'PostgreSQL'],
-      liveUrl: 'https://app.gen-cyb.com/',
-      featured: true
+      liveUrl: 'https://app.gen-cyb.com/', featured: true
     },
     {
-      id: 2,
-      title: 'Scrum Coffee Shop',
-      description: 'Developed a full-stack Coffee Shop Management System supporting 100+ users with secure JWT-based authentication and single-device login enforcement. Integrated Google Wallet and Apple Wallet to generate digital loyalty and subscription cards. Implemented real-time synchronization where order updates, loyalty points, and subscription status automatically update across mobile wallets. Built a QR code–based workflow used by baristas to scan customer cards and instantly update rewards, improving checkout efficiency by ~40%. Developed a dynamic billing engine handling cash and card payments, automatic discount calculations, and promotional offers.',
+      id: 2, title: 'Scrum Coffee Shop',
+      description: 'Full-stack Coffee Shop Management System supporting 100+ users with JWT auth. Integrated Google Wallet and Apple Wallet for digital loyalty cards. Built QR code workflow improving checkout efficiency by ~40%.',
       image: scrum,
       technologies: ['Node.js', 'Express.js', 'Prisma', 'PostgreSQL', 'JWT', 'Firebase', 'Google Wallet', 'Apple Wallet'],
-      liveUrl: 'https://scrum-backend.vercel.app/',
-      featured: false
+      liveUrl: 'https://scrum-backend.vercel.app/', featured: false
     },
     {
-      id: 3,
-      title: 'Scan2Alert - VMS Bot (Vehicle Management System Bot)',
-      description: 'Designed and deployed a WhatsApp-based platform enabling users to register vehicles, submit complaints, and make secure payments via Razor pay.Integrated Razorpay Payment Links API with WhatsAppCloud API to handle payments directly in chat, including real-time payment status tracking. Implemented automated workflows to verify vehicle data, log complaints (issue & location), and instantly notify both vehicle owners and complainants.Leveraged MongoDB for real-time data storage and retrieval, ensuring high performance andreliability.Configured WhatsApp Webhooks for seamless two-way communication and instant data synchronization.Deployed on a Linux VPS using Nginx, SSL, and a custom domain for secure, production-read hoisti.',
+      id: 3, title: 'Scan2Alert - VMS Bot',
+      description: 'WhatsApp-based platform for vehicle registration, complaints, and Razorpay payments. Integrated WhatsApp Cloud API with real-time payment tracking and automated workflows.',
       image: scan,
       technologies: ['React', 'Node.js', 'MongoDB', 'Razorpay', 'Express', 'Webhooks'],
-      liveUrl: 'https://scan2alert.in/',
-      featured: false
+      liveUrl: 'https://scan2alert.in/', featured: false
     },
     {
-      id: 4,
-      title: 'Admin Dashboard',
-      description: 'Built a full-stack MERN dashboard to manage vehicles, complaints, and payments with a sleek, responsive UI. Integrated WhatsApp Cloud API for instant notifications and Razorpay for seamless payment tracking.Implemented secure login, real-time updates, and dynamic analytics, optimizing React components with useMemo/useCallback.Managed backend & database with Node.js, Express, and MongoDB for smooth data flow and scalability.',
+      id: 4, title: 'Admin Dashboard',
+      description: 'Full-stack MERN dashboard managing vehicles, complaints, and payments. Integrated WhatsApp Cloud API and Razorpay with real-time updates and dynamic analytics.',
       image: admin,
-      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Postman', 'Vercel'],
-      liveUrl: 'https://admin-dashboard-three-sooty-11.vercel.app/',
-      githubUrl: 'https://github.com/Shalbandians/Multi-Vender',
-      featured: false
-    },{
-      id: 5,
-      title: 'Vendor Dashboard',
-      description: 'Built a full-stack MERN dashboard enabling vendors to manage products, orders, and payments in one place. Implemented role-based authentication (admin & vendor) with JWT for secure access.Designed a modern, responsive UI with React + Tailwind CSS, optimized using Context API, useMemo.Backend built with Node.js & Express, storing vendor/product/order data in MongoDB.Deployed on Vercel, ensuring fast, reliable access for end users. ',
+      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Vercel'],
+      liveUrl: 'https://admin-dashboard-three-sooty-11.vercel.app/', featured: false
+    },
+    {
+      id: 5, title: 'Vendor Dashboard',
+      description: 'MERN dashboard for vendors to manage products, orders, and payments. Role-based JWT auth, responsive UI with React + Tailwind, deployed on Vercel.',
       image: vendor,
-      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Postman','Vercel'],
-      liveUrl: 'https://vendor-dashboard-nu.vercel.app/',
-      githubUrl: 'https://github.com/Shalbandians/Multi-Vender',
-      featured: false
+      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Vercel'],
+      liveUrl: 'https://vendor-dashboard-nu.vercel.app/', featured: false
     },
     {
-      id: 6,
-      title: 'Multi-Vender E-commerce Store',
-      description: 'Developed secure user authentication with JWT and integrated multiple payment options (Stripe,PayPal, COD), boosting transaction volume by 50% Designed comprehensive order and seller management features, including real-time chat viaSocket.IO and timed product events, increasing seller registrations by 35% and customer engagement by 40%. Created admin tools for efficient monitoring and control of products, events, and seller activities,improving admin productivity by 20%. Implemented coupon management and streamlined seller fund withdrawals with admin approval,enhancing promotional success and reducing withdrawal processing time by 30%.',
+      id: 6, title: 'Multi-Vendor E-commerce Store',
+      description: 'Secure JWT auth with Stripe/PayPal/COD payments boosting transactions by 50%. Real-time chat via Socket.IO, coupon management, and seller fund withdrawals.',
       image: eshop,
-      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Postman'],
-      liveUrl: 'https://multi-vender-b42z.vercel.app/',
-      githubUrl: 'https://github.com/Shalbandians/Multi-Vender',
-      featured: false
+      technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Stripe'],
+      liveUrl: 'https://multi-vender-b42z.vercel.app/', featured: false
     },
     {
-      id: 7,
-      title: 'UME Health Referral Portal',
-      description: 'Designed and implemented a secure registration system with email verification and automated notifications. Integrated a PDF generation module for efficient referral file distribution, enhancing workflow efficiency by 40%. Developed an admin panel for streamlined appointment scheduling,improving scheduling accuracy by 30%.',
+      id: 7, title: 'UME Health Referral Portal',
+      description: 'Secure registration with email verification and automated notifications. PDF generation for referral files and admin panel for appointment scheduling.',
       image: ume,
-      technologies: ['React', 'MongoDB Atlas', 'Express', 'Postman', 'Node.js',],
-      liveUrl: 'https://ume-health.vercel.app/',
-
-      featured: false
+      technologies: ['React', 'MongoDB Atlas', 'Express', 'Node.js'],
+      liveUrl: 'https://ume-health.vercel.app/', featured: false
     },
     {
-      id: 8,
-      title: 'Moving House',
-      description: 'Tech Coordinator at Home-Shift Pro Enhanced user experience by integrating state code input for more efficient cleaning and moving services, and implemented secure email verification, improving registration accuracy by 30% and reducing processing time by 20%.',
+      id: 8, title: 'Moving House',
+      description: 'Home-Shift Pro platform with state code input for cleaning/moving services. Secure email verification improving registration accuracy by 30%.',
       image: Mh,
-      technologies: ['React', 'TailwindCss', 'Material-UI', 'Email-js', 'Node.js', 'MongoDB', 'Express'],
-      liveUrl: 'https://moving-house.vercel.app/',
-      featured: true
+      technologies: ['React', 'TailwindCSS', 'Material-UI', 'Email-js', 'Node.js', 'MongoDB'],
+      liveUrl: 'https://moving-house.vercel.app/', featured: true
     }
   ];
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          ref={ref}
-          className={`transition-all duration-1000 ${isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10'
-            }`}
-        >
+    <section id="projects" className={`py-20 lg:py-28 relative overflow-hidden transition-colors duration-500 ${sec}`}>
+      <div className={`absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none ${dark ? 'bg-purple-600/8' : 'bg-purple-300/15'}`} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-20">
+        <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Featured Projects
+            <span className={`inline-block text-xs font-semibold tracking-widest uppercase mb-3 ${dark ? 'text-indigo-400' : 'text-indigo-600'}`}>Portfolio</span>
+            <h2 className={`text-3xl md:text-4xl font-extrabold mb-4 ${heading}`}>
+              Featured <span className="text-gradient">Projects</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
+            <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+            <p className={`mt-4 max-w-2xl mx-auto text-sm sm:text-base ${sub}`}>
               A collection of projects that showcase my skills and passion for development
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`group bg-slate-700/30 rounded-2xl border border-slate-600/30 overflow-hidden hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 ${project.featured ? 'md:col-span-2' : ''
-                  } ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
+              <div key={project.id}
+                className={`group rounded-2xl border overflow-hidden transition-all duration-400 hover:shadow-[0_8px_40px_rgba(99,102,241,0.12)] card-3d ${cardBg} ${project.featured ? 'md:col-span-2' : ''} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 150}ms` }}>
                 <div className={`grid ${project.featured ? 'md:grid-cols-2' : 'grid-cols-1'} gap-0`}>
-                  {project.image ? (
-                    <div className="relative overflow-hidden min-h-[250px] sm:min-h-[300px]">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                        style={{ minHeight: '250px', maxHeight: '500px' }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                      {project.featured && (
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                            Featured
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 flex items-center justify-center min-h-[250px] sm:min-h-[300px]">
-                      <div className="text-center p-6 sm:p-8">
-                        <Code className="w-16 h-16 sm:w-20 sm:h-20 text-white/80 mx-auto mb-4" />
-                        <h4 className="text-white text-xl sm:text-2xl font-bold">{project.title}</h4>
+                  <div className="relative overflow-hidden min-h-[220px]">
+                    <img src={project.image} alt={project.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      style={{ minHeight: '220px', maxHeight: '400px' }} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    {project.featured && (
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                          ⭐ Featured
+                        </span>
                       </div>
-                      {project.featured && (
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                            Featured
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  )}
+                    )}
+                  </div>
 
                   <div className="p-6 sm:p-8">
-                    <h3 className="text-white font-bold text-lg sm:text-xl mb-3 group-hover:text-blue-400 transition-colors">
+                    <h3 className={`font-bold text-lg sm:text-xl mb-3 group-hover:text-indigo-400 transition-colors ${heading}`}>
                       {project.title}
                     </h3>
-                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 line-clamp-4 sm:line-clamp-none">
+                    <p className={`text-sm leading-relaxed mb-5 line-clamp-4 ${desc}`}>
                       {project.description}
                     </p>
-
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-500/30"
-                        >
-                          {tech}
-                        </span>
+                      {project.technologies.map(tech => (
+                        <span key={tech} className={`px-2.5 py-1 rounded-lg text-xs border font-medium ${tagBg}`}>{tech}</span>
                       ))}
                     </div>
-
-                    <div className="flex gap-4">
-                      <a
-                        href={project.liveUrl}
-                        className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 transition-all duration-300 flex items-center gap-2 text-sm"
-                      >
-                        <ExternalLink size={16} />
-                        Live Demo
-                      </a>
-
-                    </div>
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:-translate-y-0.5">
+                      <ExternalLink size={15} />
+                      Live Demo
+                    </a>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
-
         </div>
       </div>
     </section>

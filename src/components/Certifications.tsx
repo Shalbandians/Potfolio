@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { Award, ExternalLink, X } from 'lucide-react';
+import { useTheme } from '../App';
 import docker from '../image/docker.png'; // Ensure you have a profile image in this path
 import udemyModern from '../image/UdemyModern.png';
 import udemy from '../image/udemy.png';
@@ -10,6 +11,12 @@ import aws from '../image/aws.png';
 const Certifications = () => {
   const [ref, isVisible] = useIntersectionObserver();
   const [selectedCert, setSelectedCert] = useState(null);
+  const { dark } = useTheme();
+  const sec = dark ? 'bg-[#02040a]' : 'bg-[#f0f4ff]';
+  const heading = dark ? 'text-white' : 'text-gray-900';
+  const sub = dark ? 'text-gray-300' : 'text-gray-600';
+  const cardBg = dark ? 'bg-white/5 border-white/8 backdrop-blur-sm hover:border-indigo-500/40' : 'bg-white border-gray-200 shadow-sm hover:border-indigo-400';
+  const modalBg = dark ? 'bg-[#0a0d1a] border-white/10' : 'bg-white border-gray-200 shadow-2xl';
 
   const certifications = [
     {
@@ -72,7 +79,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-12 sm:py-16 lg:py-20 bg-slate-800/30">
+    <section id="certifications" className={`py-20 lg:py-28 relative overflow-hidden transition-colors duration-500 ${sec}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div
@@ -83,7 +90,7 @@ const Certifications = () => {
             }`}
         >
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+            <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 shimmer-text`}>
               Certifications & Achievements
             </h2>
             <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
@@ -98,8 +105,7 @@ const Certifications = () => {
             {certifications.map((cert, index) => (
               <div
                 key={cert.id}
-                className={`group bg-slate-700/30 rounded-xl border border-slate-600/30 overflow-hidden hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer ${isVisible ? 'animate-fade-in-up' : 'opacity-0'
-                  }`}
+                className={`group rounded-xl border overflow-hidden hover:scale-105 transition-all duration-400 cursor-pointer card-3d ${cardBg} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: `${index * 150}ms` }}
                 onClick={() => setSelectedCert(cert)}
               >
@@ -116,10 +122,10 @@ const Certifications = () => {
                 </div>
 
                 <div className="p-4 sm:p-6">
-                  <h3 className="text-white font-semibold text-base sm:text-lg mb-2 group-hover:text-blue-400 transition-colors line-clamp-2">
+                  <h3 className={`font-semibold text-base sm:text-lg mb-2 group-hover:text-indigo-400 transition-colors line-clamp-2 ${heading}`}>
                     {cert.title}
                   </h3>
-                  <p className="text-gray-400 text-xs sm:text-sm mb-2">{cert.issuer}</p>
+                  <p className={`text-xs sm:text-sm mb-2 ${dark ? 'text-gray-400' : 'text-gray-500'}`}>{cert.issuer}</p>
                   <p className="text-gray-500 text-xs mb-3 sm:mb-4">{cert.date}</p>
 
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -147,7 +153,7 @@ const Certifications = () => {
       {/* Modal */}
       {selectedCert && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-          <div className="bg-slate-800 rounded-2xl border border-slate-600/50 max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+          <div className={`rounded-2xl border max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-scale-in ${modalBg}`}>
             <div className="relative">
               <img
                 src={selectedCert.image}

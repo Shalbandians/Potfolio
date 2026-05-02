@@ -24,7 +24,7 @@ export const javascript = {
 
 export const react = {
   title: "React.js",
-  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
+  img: "https://cdn-icons-png.flaticon.com/512/1126/1126012.png",
   wid: "75%",
   swid: "40%",
 };
@@ -74,7 +74,7 @@ export const express = {
 
 export const tailwind = {
   title: "Tailwind CSS",
-  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png",
+  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVgHWDyjwN9qZsPChFzc5PRfOOOqbfgXqR3w&s",
   wid: "65%",
   swid: "40%",
 };
