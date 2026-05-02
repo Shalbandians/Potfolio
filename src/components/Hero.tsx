@@ -6,7 +6,7 @@ import ThreeScene from './ThreeScene';
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
-  const roles = ['Full Stack Developer', 'MERN Stack Expert', 'React Developer', 'Node.js Enthusiast', 'Tech Problem Solver'];
+  const roles = ['Full Stack Developer', 'MERN Stack Expert', 'Problem Solver'];
 
   useEffect(() => {
     let i = 0;
@@ -115,7 +115,7 @@ const Hero = () => {
           </div>
 
           {/* Right - Avatar + Badges */}
-          <div className="relative flex-shrink-0 flex items-center justify-center" style={{ width: '280px', height: '320px' }}>
+          <div className="relative flex-shrink-0 flex items-center justify-center pb-24 lg:pb-0" style={{ width: '280px', height: '320px' }}>
             {/* Outer glow */}
             <div className="absolute w-40 h-40 rounded-full bg-blue-600/20 blur-[50px] animate-pulse" />
             <div className="absolute w-36 h-36 rounded-full bg-purple-600/15 blur-[40px] animate-pulse" style={{ animationDelay: '1s' }} />
@@ -203,6 +203,8 @@ const Hero = () => {
               </svg>
             </div>
 
+            {/* Badges - hidden on mobile, visible on lg+ */}
+            <div className="hidden lg:block">
             {/* TOP CENTER - JavaScript (yellow) */}
             <div style={{ position:'absolute', top:'-14px', left:'50%', transform:'translateX(-50%)', animationDuration:'3.2s' }}
               className="z-20 animate-float bg-gradient-to-r from-yellow-400 to-yellow-500 text-black text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg whitespace-nowrap">
@@ -242,6 +244,17 @@ const Hero = () => {
             <div style={{ position:'absolute', top:'-8px', left:'-56px', animationDuration:'4.5s', animationDelay:'2.1s' }}
               className="z-20 animate-float bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg whitespace-nowrap">
               2+ Yrs Exp
+            </div>
+            </div>
+
+            {/* Mobile badges - shown below avatar as grid */}
+            <div className="lg:hidden absolute -bottom-20 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-1.5 w-72">
+              {['JavaScript','React.js','Node.js','TypeScript','MongoDB','Next.js'].map((t,i) => (
+                <span key={t} className="text-[10px] font-bold px-2.5 py-1 rounded-full text-white whitespace-nowrap"
+                  style={{ background: ['#ca8a04','#0891b2','#16a34a','#1d4ed8','#0d9488','#111827'][i] }}>
+                  {t}
+                </span>
+              ))}
             </div>
 
           </div>
