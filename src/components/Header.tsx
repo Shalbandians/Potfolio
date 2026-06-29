@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../App';
+import logo from '../image/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,8 +34,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <a href="#" className="text-xl font-extrabold text-gradient tracking-tight">
-            MR<span className={dark ? 'text-white' : 'text-gray-900'}></span>
+          <a href="#">
+            <img src={logo} alt="Logo" className="h-12 rounded-full w-auto object-contain" />
           </a>
 
           {/* Desktop nav */}

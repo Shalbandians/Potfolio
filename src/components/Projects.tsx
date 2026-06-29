@@ -10,7 +10,7 @@ import admin from '../image/admin.png';
 import vendor from '../image/vendor.png';
 import gencyb from '../image/gencyb.png';
 import scrum from '../image/scrum.jpeg';
-
+import verisaya from '../image/verisaya.png';
 const Projects = () => {
   const [ref, isVisible] = useIntersectionObserver();
   const { dark } = useTheme();
@@ -24,60 +24,79 @@ const Projects = () => {
 
   const projects = [
     {
-      id: 1, title: 'GenCyb SaaS Platform Deployment',
+      id: 1, title: 'Verisaya – Enterprise SaaS Workforce Management Platform',
+      description: 'Designed and developed a scalable enterprise-grade SaaS platform for workforce management, training coordination, attendance tracking, subscription management, and advanced organizational reporting.',
+      bullets: [
+        'Architected a multi-tenant SaaS system supporting Super Admin, Admin, Coordinator, Trainer, and Employee roles with secure role-based access control',
+        'Implemented subscription-based organizational management with isolated workspaces and permission handling',
+        'Developed a QR code-based attendance system with secure employee check-in/check-out workflows and automated attendance duration calculations',
+        'Built a complete training management workflow where Admins and Coordinators can create sessions, assign trainers, and manage employee participation',
+        'Enforced department-level and role-based session restrictions to ensure users can only access authorized sessions',
+        'Developed advanced reporting and analytics modules including attendance reports, trainer performance, department insights, top-performing employees, and session analytics',
+        'Implemented bulk import functionality for onboarding employees and coordinators efficiently',
+        'Integrated automated email workflows with temporary password generation for newly created users',
+        'Configured and managed complete CI/CD pipelines using GitHub Actions for streamlined deployment and delivery',
+        'Deployed backend on AWS EC2, frontend on AWS S3 with Nginx reverse proxy and Linux server configuration',
+      ],
+      image: verisaya,
+      technologies: ['Node.js', 'React.js', 'MongoDB', 'AWS EC2', 'AWS S3', 'GitHub Actions', 'Docker', 'Nginx', 'Linux', 'Express.js', 'CI/CD'],
+      liveUrl: 'https://www.verisaya.com/', featured: true
+    },
+    {
+      id: 2, title: 'GenCyb SaaS Platform Deployment',
       description: 'Implemented CI/CD pipelines using GitHub Actions to automate the deployment of a React frontend and Node.js backend to a VPS server. Configured Docker-based deployment to ensure consistent environments and smooth application updates.',
       image: gencyb,
       technologies: ['GitHub Actions', 'CI/CD', 'Docker', 'React', 'Node.js', 'VPS', 'Prisma ORM', 'PostgreSQL'],
-      liveUrl: 'https://app.gen-cyb.com/', featured: true
+      liveUrl: 'https://app.gen-cyb.com/', featured: false
     },
     {
-      id: 2, title: 'Scrum Coffee Shop',
+      id: 3, title: 'Scrum Coffee Shop',
       description: 'Full-stack Coffee Shop Management System supporting 100+ users with JWT auth. Integrated Google Wallet and Apple Wallet for digital loyalty cards. Built QR code workflow improving checkout efficiency by ~40%.',
       image: scrum,
       technologies: ['Node.js', 'Express.js', 'Prisma', 'PostgreSQL', 'JWT', 'Firebase', 'Google Wallet', 'Apple Wallet'],
       liveUrl: 'https://scrum-backend.vercel.app/', featured: false
     },
     {
-      id: 3, title: 'Scan2Alert - VMS Bot',
+      id: 4, title: 'Scan2Alert - VMS Bot',
       description: 'WhatsApp-based platform for vehicle registration, complaints, and Razorpay payments. Integrated WhatsApp Cloud API with real-time payment tracking and automated workflows.',
       image: scan,
       technologies: ['React', 'Node.js', 'MongoDB', 'Razorpay', 'Express', 'Webhooks'],
       liveUrl: 'https://scan2alert.in/', featured: false
     },
     {
-      id: 4, title: 'Admin Dashboard',
+      id: 5, title: 'Admin Dashboard',
       description: 'Full-stack MERN dashboard managing vehicles, complaints, and payments. Integrated WhatsApp Cloud API and Razorpay with real-time updates and dynamic analytics.',
       image: admin,
       technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Vercel'],
       liveUrl: 'https://admin-dashboard-three-sooty-11.vercel.app/', featured: false
     },
     {
-      id: 5, title: 'Vendor Dashboard',
+      id: 6, title: 'Vendor Dashboard',
       description: 'MERN dashboard for vendors to manage products, orders, and payments. Role-based JWT auth, responsive UI with React + Tailwind, deployed on Vercel.',
       image: vendor,
       technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Vercel'],
       liveUrl: 'https://vendor-dashboard-nu.vercel.app/', featured: false
     },
     {
-      id: 6, title: 'Multi-Vendor E-commerce Store',
+      id: 7, title: 'Multi-Vendor E-commerce Store',
       description: 'Secure JWT auth with Stripe/PayPal/COD payments boosting transactions by 50%. Real-time chat via Socket.IO, coupon management, and seller fund withdrawals.',
       image: eshop,
       technologies: ['React', 'MongoDB Atlas', 'Socket.io', 'Express', 'Stripe'],
       liveUrl: 'https://multi-vender-b42z.vercel.app/', featured: false
     },
     {
-      id: 7, title: 'UME Health Referral Portal',
+      id: 8, title: 'UME Health Referral Portal',
       description: 'Secure registration with email verification and automated notifications. PDF generation for referral files and admin panel for appointment scheduling.',
       image: ume,
       technologies: ['React', 'MongoDB Atlas', 'Express', 'Node.js'],
       liveUrl: 'https://ume-health.vercel.app/', featured: false
     },
     {
-      id: 8, title: 'Moving House',
+      id: 9, title: 'Moving House',
       description: 'Home-Shift Pro platform with state code input for cleaning/moving services. Secure email verification improving registration accuracy by 30%.',
       image: Mh,
       technologies: ['React', 'TailwindCSS', 'Material-UI', 'Email-js', 'Node.js', 'MongoDB'],
-      liveUrl: 'https://moving-house.vercel.app/', featured: true
+      liveUrl: 'https://moving-house.vercel.app/', featured: false
     }
   ];
 
@@ -123,9 +142,19 @@ const Projects = () => {
                     <h3 className={`font-bold text-lg sm:text-xl mb-3 group-hover:text-indigo-400 transition-colors ${heading}`}>
                       {project.title}
                     </h3>
-                    <p className={`text-sm leading-relaxed mb-5 line-clamp-4 ${desc}`}>
+                    <p className={`text-sm leading-relaxed mb-3 ${'bullets' in project ? '' : 'mb-5 line-clamp-4'} ${desc}`}>
                       {project.description}
                     </p>
+                    {'bullets' in project && (
+                      <ul className={`text-sm leading-relaxed mb-5 space-y-1 list-none ${desc}`}>
+                        {(project as any).bullets.map((b: string, i: number) => (
+                          <li key={i} className="flex gap-2">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.map(tech => (
                         <span key={tech} className={`px-2.5 py-1 rounded-lg text-xs border font-medium ${tagBg}`}>{tech}</span>
