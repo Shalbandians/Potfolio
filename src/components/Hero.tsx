@@ -99,7 +99,7 @@ const Hero = () => {
             {/* Socials */}
             <div className="flex gap-5 justify-center lg:justify-start">
               {[
-                { href: 'https://github.com/Shalbandians', icon: Github, color: 'hover:text-white hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]' },
+                { href: 'https://github.com/Rizwan-300', icon: Github, color: 'hover:text-white hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]' },
                 { href: 'https://www.linkedin.com/in/muhammad-rizwan-093727243/', icon: Linkedin, color: 'hover:text-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]' },
                 { href: 'mailto:muhammadrizwanramzan300@gmail.com', icon: Mail, color: 'hover:text-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.5)]' },
               ].map(({ href, icon: Icon, color }) => (
