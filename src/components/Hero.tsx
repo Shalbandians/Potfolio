@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react';
-import cvFile from '../Muhammad Rizwan Resume.pdf';
+import cvFile from '../Muhammad_Rizwan_Resume.pdf';
 import ThreeScene from './ThreeScene';
 
 const Hero = () => {
